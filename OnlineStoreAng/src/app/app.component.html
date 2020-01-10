@@ -1,0 +1,50 @@
+<!-- Toolbar -->
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <div>
+      <button
+        mat-icon-button
+        class="button-side"
+        [matMenuTriggerFor]="products"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+    <div>
+      <a target="_blank">Adă banii shop</a>
+    </div>
+    <div *ngIf="!isLoggedIn()">
+      <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+      <a
+        mat-button
+        mat-raised-button
+        routerLink="register"
+        routerLinkActive="active"
+        >Register</a
+      >
+    </div>
+
+    <div *ngIf="isLoggedIn()" style="position: absolute; right: 0;">
+      <a
+        mat-button
+        routerLink="login"
+        routerLinkActive="active"
+        (click)="logout()"
+        >Log out</a
+      >
+    </div>
+  </mat-toolbar>
+
+  <mat-menu #products="matMenu" routerLinkActive="active">
+    <div
+      *ngFor="let category of categories"
+      routerLink="category/{{ category.categoryName }}"
+    >
+      <button mat-menu-item>
+        {{ category.categoryName }}
+      </button>
+    </div>
+  </mat-menu>
+  <router-outlet name = "first"></router-outlet>
+</div>
+

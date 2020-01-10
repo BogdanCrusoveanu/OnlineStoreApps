@@ -1,0 +1,14 @@
+  .card {
+      flex: 1 0 21%;
+      margin-top: 20px;
+      margin-left: 20px;
+      padding-right: 50px;
+      position: relative;
+      width: 220px;
+      height: 250px;
+  }
+
+  .items {
+      display: flex;
+      flex-wrap: wrap;
+  }

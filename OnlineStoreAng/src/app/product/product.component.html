@@ -1,0 +1,20 @@
+<router-outlet></router-outlet>
+<div class="items">
+  <div *ngFor="let phone of phones" class="products">
+    <mat-card class="card">
+      <mat-card-header> </mat-card-header>
+      <img
+        style="width: auto; height: 125px; margin-left: 40px; margin-top: 10px;"
+        mat-card-image
+        src="{{ phone.picture }}"
+      />
+        <button mat-button routerLink="./{{phone.phoneId}}" routerLinkActive="active"> 
+          {{ phone.productTitle }}
+        </button>
+      <button mat-button style="margin-left: 10px;">
+        Add to chart
+      </button>
+      <button mat-button>Buy</button>
+    </mat-card>
+  </div>
+</div>
